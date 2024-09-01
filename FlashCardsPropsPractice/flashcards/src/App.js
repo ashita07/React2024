@@ -11,7 +11,7 @@ export default function App() {
 const questions = [
   {
     id: 3457,
-    question: "what language isa react based on?",
+    question: "what language is react based on?",
     answer: "Javascript",
   },
   {
@@ -50,7 +50,9 @@ function FlashCards() {
       {questions.map((question) => (
         <div
           key={questions.id}
-          onClick={() => setSelectedId(question.id)}
+          onClick={() =>
+            setSelectedId(question.id !== selectedId ? question.id : null)
+          }
           className={question.id === selectedId ? "selected" : ""}
         >
           <p>
